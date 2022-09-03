@@ -1,0 +1,14 @@
+{
+    "autoload": {
+        "psr-4": {
+            "Router\\": "routes/",
+            "App\\": "app/"
+        }
+    },
+    "require": {
+        "mailjet/mailjet-apiv3-php": "^1.5"
+    },
+    "require-dev": {
+        "symfony/var-dumper": "^3.4"
+    }
+}
