@@ -1,3 +1,7 @@
+<?php
+if(isset($_SESSION['user'])){
+    if($_SESSION['user']['role'] == 1){
+        ?>
 <h1>Supprimer le post</h1>
 <form action="" method="POST">
     <input type="text" name="article_titre" placeholder="Titre" value="<?= $postDelete['titre']; ?>"><br>
@@ -5,3 +9,11 @@
     <input type="text" name="article_chapo" placeholder="Chapo" value="<?= $postDelete['chapo']; ?>"><br>
     <input type="text" name="article_auteur" placeholder="nom de l'auteur" value="<?= $postDelete['auteur']; ?>"><br>
     <input type="submit" name="delete" value="supprimer">
+        <?php
+    }else{
+        header ('location: /accueil');
+    }
+}else{
+    header ('location: /connection');
+}
+?>

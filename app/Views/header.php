@@ -1,3 +1,6 @@
+<?php
+    session_start();
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -18,7 +21,27 @@
         <ul>
             <li><a href="/accueil">Accueil</a></li>
             <li><a href="ajouter-un-article">Redaction</a></li>
-            <li><a href="/liste-des-articles">Articles</a></li>
+            <?php
+            if(isset($_SESSION['user'])){
+                if($_SESSION['user']['role'] == 1){
+                ?>
+                <li><a href="/liste-des-articles">Articles</a></li>
+                <?php
+                }
+            }
+            ?>
+            <li><a href="/inscription">Inscription</a></li>
+            <?php
+            if(isset($_SESSION['user'])){
+                ?>
+                <li><a href="/deconnexion">Deconnexion</a></li>
+                <?php
+            }else{
+            ?>
+            <li><a href="/connection">Se Connecter</a></li>
+            <?php
+            }
+            ?>
         </ul>
     </nav>
 

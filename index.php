@@ -4,13 +4,9 @@ require 'vendor/autoload.php';
 require './app/Controllers/Controller.php';
 
 $urlParts =  array_values(array_filter(explode('/', $_SERVER["REQUEST_URI"])));
-//die(var_dump($urlParts));
 $urlString = implode('',$urlParts);
-//die(var_dump($urlString));
-
-
 $controllerName = $urlParts[0];
-//$action = $urlParts[1];
+
 
 require ('./app/Views/header.php');
 
@@ -36,6 +32,15 @@ if($controllerName == 'accueil'){
     $postById->postControllerById($postId);
     /*$post = new Posts;
     $post->postShow($postId);*/
+}if($controllerName == 'inscription'){
+    $newPost = new Controller();
+    $newPost->userControllerAdd();
+}if($controllerName == 'connection'){
+    $newPost = new Controller();
+    $newPost->userControllerConnect();
+}if($controllerName == 'deconnexion'){
+    $newPost = new Controller();
+    $newPost->userControllerDisconnect();
 }
 
 

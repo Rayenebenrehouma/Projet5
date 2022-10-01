@@ -1,7 +1,6 @@
 <?php
 require './app/Models/PostRepository.php';
-require './app/Models/abstractPostRepository.php';
-
+require './app/Models/UserRepository.php';
 
 class Controller{
     public function postControllerAll(){
@@ -18,22 +17,41 @@ class Controller{
     }
 
     public function postControllerAdd(){
-        $postAbstractRepository = new AbstractPostRepository();
-        $postAdd = $postAbstractRepository->addPost();
+        $postRepository = new postRepository();
+        $postAdd = $postRepository->addPost();
         require('./app/Views/formRedaction.php');
     }
 
     public function postControllerUpdate($updateId){
-        $postAbstractRepository = new AbstractPostRepository();
-        $postUpdate = $postAbstractRepository->postById($updateId);
+        $postRepository = new postRepository();
+        $postUpdate = $postRepository->postById($updateId);
         require('./app/Views/updateForm.php');
-        $postUpdate = $postAbstractRepository->updatePost($updateId);
+        $postUpdate = $postRepository->updatePost($updateId);
     }
 
     public function postControllerDelete($deleteId){
-        $postAbstractRepository = new AbstractPostRepository();
-        $postDelete = $postAbstractRepository->postById($deleteId);
+        $postRepository = new postRepository();
+        $postDelete = $postRepository->postById($deleteId);
         require('./app/Views/deleteForm.php');
-        $postDelete = $postAbstractRepository->deletePost($deleteId);
+        $postDelete = $postRepository->deletePost($deleteId);
+    }
+
+    public function userControllerAdd(){
+        $userRepository = new userRepository();
+        $userAdd = $userRepository->addUser();
+        require('./app/Views/signUp.php');
+    }
+
+    public function userControllerConnect(){
+        $userRepository = new userRepository();
+        $userConnect = $userRepository->connectUser();
+        require('./app/Views/signIn.php');
+    }
+
+    public function userControllerDisconnect(){
+        $userRepository = new userRepository();
+        require('./app/Views/disconnect.php');
+        $userDisconnect = $userRepository->disconnectUser();
+        require('./app/Views/disconnect.php');
     }
 }

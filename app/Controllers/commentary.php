@@ -9,7 +9,7 @@ if(isset($_POST['commentary_content'], $_POST['commentary_author'])){
         $commentary_content = htmlspecialchars($_POST['commentary_content']);
         $commentary_author = htmlspecialchars($_POST['commentary_author']);
 
-        $ins = $bdd->prepare('INSERT INTO commentaire(content, author) VALUES(?, ?)');
+        $ins = $bdd->prepare('INSERT INTO commentaires(content, author) VALUES(?, ?)');
         $ins->execute(array($commentary_content, $commentary_author));
 
         $message = 'Votre commentaire est en cours de vérification';

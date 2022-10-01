@@ -1,3 +1,7 @@
+<?php
+if(isset($_SESSION['user'])){
+if($_SESSION['user']['role'] == 1){
+?>
 <h1>Mettre à jour le post</h1>
 <form action="" method="POST">
     <input type="text" name="article_titre" placeholder="Titre" value="<?= $postUpdate['titre']; ?>"><br>
@@ -7,3 +11,11 @@
     <input type="submit" name="update" value="mettre a jour">
 </form>
 <br>
+    <?php
+}else{
+    header ('location: /accueil');
+}
+}else{
+    header ('location: /connection');
+}
+?>

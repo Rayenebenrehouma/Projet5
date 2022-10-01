@@ -1,3 +1,7 @@
+<?php
+if(isset($_SESSION['user'])){
+    if($_SESSION['user']['role'] == 1){
+    ?>
 <table class="table">
     <thead>
     <tr>
@@ -21,3 +25,11 @@
         </tr>
     </tbody>
 </table>
+    <?php
+    }else{
+        header ('location: /accueil');
+    }
+}else{
+    header ('location: /connection');
+}
+?>

@@ -1,4 +1,11 @@
 <div id="cv">
+    <?php
+    if(isset($_SESSION['user'])){
+    ?>
+    <h1><?php echo $_SESSION['user']['identifiant']; ?></h1>
+    <?php
+        }
+    ?>
         <h2 id="titre_cv">Découvrez mon CV</h2>
         <a href="file:///C:/Users/rayen/Desktop/All%20in%20one/Document%20Importants/Travail/CV_Developpeur_Web_-_Rayene_Ben_Rehouma.pdf.pdf" id="link_pdf">CV développeur Web Rayen Ben Rehouma</a>
     </div>
