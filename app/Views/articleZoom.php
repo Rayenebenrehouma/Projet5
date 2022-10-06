@@ -1,7 +1,6 @@
 <?php
 if(isset($_SESSION['user'])){
     if($_SESSION['user']['role'] == 1){
-        die(var_dump($_SESSION['user']['role']));
         ?>
 <table class="table">
     <thead>
