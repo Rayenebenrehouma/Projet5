@@ -20,7 +20,7 @@ if(isset($_POST['commentary_content'], $_POST['commentary_author'])){
 ?>
 
 <?php
-require('./app/Views/formCommentary.php');
+require('./app/Views/commentaryAdd.php');
 ?>
 
 <?php

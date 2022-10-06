@@ -1,6 +1,7 @@
 <?php
 require './app/Models/PostRepository.php';
 require './app/Models/UserRepository.php';
+require './app/Models/CommentaryRepository.php';
 
 class Controller{
     public function postControllerAll(){
@@ -53,5 +54,17 @@ class Controller{
         require('./app/Views/disconnect.php');
         $userDisconnect = $userRepository->disconnectUser();
         require('./app/Views/disconnect.php');
+    }
+
+    public function commentaryControllerAdd($postId){
+        $commentaryRepository = new commentaryRepository();
+        $commentaryAdd = $commentaryRepository->addCommentary($postId);
+        require('./app/Views/commentaryAdd.php');
+    }
+
+    public function commentaryControllerList($postId){
+        $commentaryRepository = new commentaryRepository();
+        $commentaryList = $commentaryRepository->listCommentary($postId);
+        require('./app/Views/commentaryList.php');
     }
 }

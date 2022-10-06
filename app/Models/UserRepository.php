@@ -10,11 +10,10 @@ class UserRepository
             if (!empty($_POST['user_email']) and !empty($_POST['user_password'])) {
 
                 $user_id = htmlspecialchars($_POST['user_id']);
-                $id_utilisateur = "6";
                 $user_email = htmlspecialchars($_POST['user_email']);
                 $user_password = password_hash($_POST['user_password'], PASSWORD_DEFAULT, ['cost' => 14]);
 
-                $sql = $bdd->prepare("INSERT INTO `utilisateurs`(`id_utilisateur`, `identifiant`, `email`, `password`, `role`) VALUES ('$id_utilisateur','$user_id','$user_email','$user_password','0')");
+                $sql = $bdd->prepare("INSERT INTO `utilisateurs`(`identifiant`, `email`, `password`, `role`) VALUES ('$user_id','$user_email','$user_password','0')");
                 $result = $sql->execute();
 
                 if($result){
@@ -23,8 +22,6 @@ class UserRepository
                     echo 'bug non trouvé';
                 }
             }
-        }else{
-            echo "erreur";
         }
     }
 
@@ -56,7 +53,6 @@ class UserRepository
     }
 
     public function disconnectUser(){
-
         session_start();
         session_destroy();
         header('location: /connection');

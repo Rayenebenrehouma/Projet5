@@ -1,7 +1,3 @@
-<?php
-if(isset($_SESSION['user'])){
-    if($_SESSION['user']['role'] == 1){
-        ?>
 <table class="table">
     <thead>
     <tr>
@@ -10,7 +6,16 @@ if(isset($_SESSION['user'])){
         <th scope="col">Contenu</th>
         <th scope="col">Auteur</th>
         <th scope="col">Dernière modification</th>
+        <th scope="col">Commentaires</th>
+        <?php
+        if(isset($_SESSION['user'])){
+        if($_SESSION['user']['role'] == 1){
+        ?>
         <th scope="col">Actions</th>
+            <?php
+        }
+        }
+        ?>
     </tr>
     </thead>
     <tbody>
@@ -21,18 +26,21 @@ if(isset($_SESSION['user'])){
         <td><?= $postZoom['auteur']; ?></td>
         <td><?= $postZoom['date_time_publication']; ?></td>
         <td>
+            <a class="btn btn-primary" href="/commentary"> Liste des commentaires </a>
+            <a class="btn btn-success" href="/commentary-add-<?= $postId ?>"> Ajout d'un commentaire</a>
+        </td>
+        <?php
+        if(isset($_SESSION['user'])){
+        if($_SESSION['user']['role'] == 1){
+        ?>
+        <td>
             <a class="btn btn-primary" href="/update-post-<?= $postId ?>">Update</a>
             <a class="btn btn-danger" href="/delete-post-<?=  $postId ?>">Delete</a>
-            <a class="btn btn-success" href="/public?page=delete&&id=<?php echo $get_id ?>">Commentaires</a>
         </td>
+            <?php
+                    }
+                }
+            ?>
     </tr>
     </tbody>
 </table>
-        <?php
-    }else{
-        header ('location: /accueil');
-    }
-}else{
-    header ('location: /connection');
-}
-?>

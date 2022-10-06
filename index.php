@@ -10,7 +10,9 @@ $controllerName = $urlParts[0];
 
 require ('./app/Views/header.php');
 
-if($controllerName == 'accueil'){
+if($controllerName == ''){
+    require ('./app/Views/home.php');
+}if($controllerName == 'accueil'){
     require ('./app/Views/home.php');
 }if($controllerName == 'liste-des-articles'){
     $newPost = new Controller();
@@ -41,7 +43,14 @@ if($controllerName == 'accueil'){
 }if($controllerName == 'deconnexion'){
     $newPost = new Controller();
     $newPost->userControllerDisconnect();
+}if(preg_match('#commentary-add-([0-9]+)#',$urlString, $params)){
+    $postId = $params[1];
+    $newPost = new Controller();
+    $newPost->commentaryControllerAdd($postId);
+}if(preg_match('#liste-des-commentaire-([0-9]+)#',$urlString, $params)){
+    $postId = $params[1];
+    $newPost = new Controller();
+    $newPost->commentaryControllerList($postId);
 }
-
 
 require ('./app/Views/footer.php');

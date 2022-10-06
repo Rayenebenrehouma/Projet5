@@ -21,16 +21,15 @@
         <ul>
             <li><a href="/accueil">Accueil</a></li>
             <li><a href="ajouter-un-article">Redaction</a></li>
-            <?php
-            if(isset($_SESSION['user'])){
-                if($_SESSION['user']['role'] == 1){
-                ?>
+
                 <li><a href="/liste-des-articles">Articles</a></li>
-                <?php
-                }
-            }
+            <?php
+            if(!isset($_SESSION['user'])){
             ?>
             <li><a href="/inscription">Inscription</a></li>
+                <?php
+            }
+            ?>
             <?php
             if(isset($_SESSION['user'])){
                 ?>

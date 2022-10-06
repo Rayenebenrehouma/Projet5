@@ -49,10 +49,10 @@ class PostRepository
         $bdd = new PDO("mysql:host=127.0.0.1;dbname=projet5;charset=utf8", "root", "");
 
         if(isset($_POST['update'])){
-            $titre = $_POST['article_titre'];
-            $chapo = $_POST['article_chapo'];
-            $contenu = $_POST['article_contenu'];
-            $auteur = $_POST['article_auteur'];
+            $titre = htmlspecialchars($_POST['article_titre']);
+            $chapo = htmlspecialchars($_POST['article_chapo']);
+            $contenu = htmlspecialchars($_POST['article_contenu']);
+            $auteur = htmlspecialchars($_POST['article_auteur']);
 
             $article = $bdd->prepare('UPDATE articles SET titre = ?, chapo = ?, contenu = ?, auteur = ? WHERE id = ?');
             $article->execute(array($titre, $chapo, $contenu, $auteur, $updateId));
