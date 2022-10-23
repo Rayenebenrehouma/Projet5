@@ -16,7 +16,6 @@
             <td>@<a href="/article-<?= $post->id ?> ">
                     Voir plus
                 </a></td>
-
     <?php } ?>
         </tr>
     </tbody>
