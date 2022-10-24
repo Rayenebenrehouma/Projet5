@@ -14,7 +14,6 @@ class Controller{
         $postRepository = new postRepository();
         $postZoom = $postRepository->postById($postId);
         require('./app/Views/articleZoom.php');
-        die($postId);
     }
 
     public function postControllerAdd(){

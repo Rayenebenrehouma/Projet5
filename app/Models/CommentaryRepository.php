@@ -31,4 +31,12 @@ class CommentaryRepository{
             echo $message;
         }
     }
+
+    public function allCommentary($commentId){
+        $bdd = new PDO("mysql:host=127.0.0.1;dbname=projet5;charset=utf8", "root", "");
+
+        $sql = $bdd->query("SELECT content, author FROM commentaires WHERE id_article = $commentId");
+        $datas = $sql->fetchAll(PDO::FETCH_CLASS);
+        return $datas;
+    }
 }
