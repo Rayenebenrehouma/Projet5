@@ -54,16 +54,4 @@ class Controller{
         $userDisconnect = $userRepository->disconnectUser();
         require('./app/Views/disconnect.php');
     }
-
-    public function commentaryControllerAdd($postId){
-        $commentaryRepository = new commentaryRepository();
-        $commentaryAdd = $commentaryRepository->addCommentary($postId);
-        require('./app/Views/commentaryAdd.php');
-    }
-
-    public function commentaryControllerList($postId){
-        $commentaryRepository = new commentaryRepository();
-        $commentaryList = $commentaryRepository->listCommentary($postId);
-        require('./app/Views/commentaryList.php');
-    }
 }

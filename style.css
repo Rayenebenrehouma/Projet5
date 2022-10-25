@@ -314,3 +314,26 @@ footer{
     display: flex;
     justify-content: center;
 }
+
+.article_comment_bottom{
+    display: flex;
+    justify-content: center;
+}
+
+/*ARTICLE ZOOM FORM */
+
+.article_zoom_form h1{
+    display: flex;
+    justify-content: center;
+}
+
+.article_zoom_form form{
+    display: flex;
+    justify-content: center;
+    margin-left: 38%;
+}
+
+.article_zoom_form label{
+    display: flex;
+    justify-content: center;
+}

@@ -36,7 +36,8 @@ if($controllerName == ''){
     $postById->postControllerById($postId);
     $commentaryById = new CommentaryController();
     $commentaryById->commentaryControllerList($commentId);
-
+    $commentaryAdd = new CommentaryController();
+    $commentaryAdd->commentaryControllerAdd($commentId);
 }if($controllerName == 'inscription'){
     $newPost = new Controller();
     $newPost->userControllerAdd();
