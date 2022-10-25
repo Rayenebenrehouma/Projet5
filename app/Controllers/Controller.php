@@ -14,7 +14,6 @@ class Controller{
         $postRepository = new postRepository();
         $postZoom = $postRepository->postById($postId);
         require('./app/Views/articleZoom.php');
-        die($postId);
     }
 
     public function postControllerAdd(){
@@ -54,17 +53,5 @@ class Controller{
         require('./app/Views/disconnect.php');
         $userDisconnect = $userRepository->disconnectUser();
         require('./app/Views/disconnect.php');
-    }
-
-    public function commentaryControllerAdd($postId){
-        $commentaryRepository = new commentaryRepository();
-        $commentaryAdd = $commentaryRepository->addCommentary($postId);
-        require('./app/Views/commentaryAdd.php');
-    }
-
-    public function commentaryControllerList($postId){
-        $commentaryRepository = new commentaryRepository();
-        $commentaryList = $commentaryRepository->listCommentary($postId);
-        require('./app/Views/commentaryList.php');
     }
 }

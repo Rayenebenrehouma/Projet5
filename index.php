@@ -2,6 +2,7 @@
 
 require 'vendor/autoload.php';
 require './app/Controllers/Controller.php';
+require './app/Controllers/CommentaryController.php';
 
 $urlParts =  array_values(array_filter(explode('/', $_SERVER["REQUEST_URI"])));
 $urlString = implode('',$urlParts);
@@ -30,10 +31,13 @@ if($controllerName == ''){
     $deleteById->postControllerDelete($deleteId);
 }if(preg_match('#article-([0-9]+)#',$urlString, $params)){
     $postId = $params[1];
+    $commentId = $params[1];
     $postById = new Controller();
     $postById->postControllerById($postId);
-    /*$post = new Posts;
-    $post->postShow($postId);*/
+    $commentaryById = new CommentaryController();
+    $commentaryById->commentaryControllerList($commentId);
+    $commentaryAdd = new CommentaryController();
+    $commentaryAdd->commentaryControllerAdd($commentId);
 }if($controllerName == 'inscription'){
     $newPost = new Controller();
     $newPost->userControllerAdd();
