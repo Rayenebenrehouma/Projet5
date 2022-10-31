@@ -22,5 +22,5 @@ if($_SESSION['user']['role'] == 1){
     </div>
 
 <?php
-}
-    ?>
+    }
+?>
