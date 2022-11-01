@@ -10,7 +10,7 @@
         <a href="file:///C:/Users/rayen/Desktop/All%20in%20one/Document%20Importants/Travail/CV_Developpeur_Web_-_Rayene_Ben_Rehouma.pdf.pdf" id="link_pdf">CV développeur Web Rayen Ben Rehouma</a>
     </div>
     <div class="container">
-        <form action="../Controllers/contact.php" method="POST" class="form">
+        <form action="" method="POST" class="form">
             <h3 id="title_form">Envoyez nous un message</h3>
 
             <input type="text" id="firstname" name="firstname" placeholder="Votre nom" required>

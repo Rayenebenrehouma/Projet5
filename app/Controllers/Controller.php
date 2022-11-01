@@ -2,6 +2,7 @@
 require './app/Models/PostRepository.php';
 require './app/Models/UserRepository.php';
 require './app/Models/CommentaryRepository.php';
+require './app/Models/EmailRepository.php';
 
 class Controller{
     public function postControllerAll(){
@@ -53,5 +54,10 @@ class Controller{
         require('./app/Views/disconnect.php');
         $userDisconnect = $userRepository->disconnectUser();
         require('./app/Views/disconnect.php');
+    }
+
+    public function mailSend(){
+        $mailRepository = new EmailRepository();
+        $mailRepository->sendMail();
     }
 }

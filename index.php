@@ -14,6 +14,8 @@ require ('./app/Views/header.php');
 if($controllerName == ''){
     require ('./app/Views/home.php');
 }if($controllerName == 'accueil'){
+    $newEmail = new Controller();
+    $newEmail->mailSend();
     require ('./app/Views/home.php');
 }if($controllerName == 'liste-des-articles'){
     $newPost = new Controller();

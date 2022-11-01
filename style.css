@@ -13,7 +13,7 @@
     position: relative;
     height: 80vh;
     width: 100%;
-    background: linear-gradient(rgba(0,0,0, .5), rgba(0,0,0, .1)), url('image/dev.jpg');
+    background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .1)), url('image/dev.jpg');
     background-size: cover;
     background-position: center;
     padding: 0 8%;
@@ -32,7 +32,6 @@ nav .logo{
     height: 50px;
     cursor: pointer;
 }
-
 
 nav .cart{
     width: 40px;
@@ -53,7 +52,7 @@ ul li{
     margin-right: 10px;
 }
 
-ul li a{
+ul li a {
     position: relative;
     padding: 10px 20px;
     text-decoration: none;
@@ -84,7 +83,7 @@ ul li a:hover::after{
     color: white;
 }
 
-.site-container p{
+.site-container p {
     font-size: 50px;
     font-weight: bold;
 }
@@ -93,17 +92,16 @@ ul li a:hover::after{
     font-size: 120px;
     line-height: 120px;
     margin-left: -10px;
-
 }
 
-.site-container h3{
+.site-container h3 {
     font-size: 40px;
     font-weight: 500;
 }
 
 /** partie formulaire **/
 
-.container{
+.container {
     width: 100%;
     margin-top: 110px;
     height: 50vh;
@@ -112,7 +110,7 @@ ul li a:hover::after{
     justify-content: center;
 }
 
-form{
+form {
     background: white;
     display: flex;
     flex-direction: column;
@@ -122,17 +120,17 @@ form{
     border-radius: 10px;
 }
 
-form h3{
+form h3 {
     color: #555;
     font-weight: 800;
     margin-bottom: 20px;
-
 }
-h3{
+
+h3 {
     margin-top: 50px;
 }
 
-form input, form textarea{
+form input, form textarea {
     border: 0;
     margin: 10px 0;
     padding: 20px;
@@ -141,7 +139,7 @@ form input, form textarea{
     font-size: 16px;
 }
 
-form button{
+form button {
     padding: 15px;
     background: #ff5361;
     color: white;
@@ -151,7 +149,7 @@ form button{
     cursor: pointer;
 }
 
-#title_form{
+#title_form {
     text-align: center;
     margin-top: 100px;
 }
