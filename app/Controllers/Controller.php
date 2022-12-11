@@ -120,4 +120,8 @@ class Controller{
         $mailRepository = new EmailRepository();
         $mailRepository->sendMail();
     }
+
+    public function gestionSite(){
+        require('./app/Views/administration.php');
+    }
 }

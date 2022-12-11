@@ -23,7 +23,7 @@
     </div>
     <div class="limitedWidthBlockContainer menu">
         <div class="limitedWidthBlock">
-            <a href="./index.html">
+            <a href="/accueil">
                 <img class="logo" src="../../image/devlogo.png" alt="Logo de l'entreprise">
             </a>
             <nav>

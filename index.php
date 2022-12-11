@@ -57,6 +57,9 @@ if($controllerName == ''){
     $postId = $params[1];
     $newPost = new Controller();
     $newPost->commentaryControllerList($postId);
+}if($controllerName == 'gestion'){
+    $newPost = new Controller();
+    $newPost->gestionSite();
 }
 
 require ('./app/Views/footer.php');
