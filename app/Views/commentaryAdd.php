@@ -1,6 +1,6 @@
 <?php
 if(isset($_SESSION['user'])){
-if($_SESSION['user']['role'] == 1){
+if($_SESSION['user']->getRole() == 1){
 ?>
 <div class="article_zoom_form">
     <h1>Ajouter un commentaires</h1>
@@ -22,5 +22,5 @@ if($_SESSION['user']['role'] == 1){
     </div>
 
 <?php
-}
-    ?>
+    }
+?>

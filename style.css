@@ -9,101 +9,33 @@
     font-family: 'Tw Cen MT', sans-serif;
 }
 
-.banner{
-    position: relative;
-    height: 80vh;
-    width: 100%;
-    background: linear-gradient(rgba(0,0,0, .5), rgba(0,0,0, .1)), url('image/dev.jpg');
-    background-size: cover;
-    background-position: center;
-    padding: 0 8%;
+body{
+    background-color: #3d4c68;
 }
 
-nav {
+
+.banner{
+    border: 1px solid red;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    flex-wrap: wrap;
-    padding: 5px 0;
 }
 
-nav .logo{
-    width: 70px;
-    height: 50px;
-    cursor: pointer;
-}
-
-
-nav .cart{
-    width: 40px;
-    cursor: pointer;
-}
-
-
-nav ul {
+.banner ul{
     display: flex;
-    justify-content: flex-end;
-    flex: 1;
-    padding-right: 40px;
-    text-align: right;
-    list-style-type: none;
-}
-
-ul li{
-    margin-right: 10px;
-}
-
-ul li a{
-    position: relative;
-    padding: 10px 20px;
-    text-decoration: none;
-    color: #fff;
-    font-size: 16px;
-}
-
-/** pour la ligne en dessous des liens **/
-ul li a::after{
-    content: '';
-    background: #ffa400;
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    width: 0;
-    height: 3px;
-    transform: translate(-50%, -5px);
-    transition: 0.3s;
-}
-
-ul li a:hover::after{
-    width:  38%;
-}
-
-.site-container{
-    position: absolute;
-    bottom: 10%;
-    color: white;
-}
-
-.site-container p{
-    font-size: 50px;
-    font-weight: bold;
-}
-
-.site-container h1{
-    font-size: 120px;
-    line-height: 120px;
-    margin-left: -10px;
+    gap: 16px;
 
 }
 
-.site-container h3{
-    font-size: 40px;
-    font-weight: 500;
+/** partie media queries **/
+
+nav img{
+    width: 20%;
 }
 
 /** partie formulaire **/
 
-.container{
+.container {
     width: 100%;
     margin-top: 110px;
     height: 50vh;
@@ -112,7 +44,7 @@ ul li a:hover::after{
     justify-content: center;
 }
 
-form{
+form {
     background: white;
     display: flex;
     flex-direction: column;
@@ -122,17 +54,17 @@ form{
     border-radius: 10px;
 }
 
-form h3{
+form h3 {
     color: #555;
     font-weight: 800;
     margin-bottom: 20px;
-
 }
-h3{
+
+h3 {
     margin-top: 50px;
 }
 
-form input, form textarea{
+form input, form textarea {
     border: 0;
     margin: 10px 0;
     padding: 20px;
@@ -141,7 +73,7 @@ form input, form textarea{
     font-size: 16px;
 }
 
-form button{
+form button {
     padding: 15px;
     background: #ff5361;
     color: white;
@@ -151,7 +83,7 @@ form button{
     cursor: pointer;
 }
 
-#title_form{
+#title_form {
     text-align: center;
     margin-top: 100px;
 }
@@ -205,11 +137,13 @@ footer{
     justify-content: center;
     gap: 16px;
     margin-top: 20px;
+    flex-wrap: wrap;
 }
 
 .article_content_style{
     border: 1px solid black;
     width: 30%;
+    justify-content: center;
 }
 
 .article_content_style h1{
@@ -226,17 +160,23 @@ footer{
 }
 
 .article_content_style a{
-    margin-bottom: -45px;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    margin-top: 40px;
 }
+
 
 .article_content_style h3{
     margin-bottom: 10px;
-    margin-left: 65%;
+    display: flex;
+    justify-content: center;
+
 }
 
 .article_bottom_style{
     align-items: center;
-    display: flex;
+
 }
 
 .article_main_title{
@@ -289,13 +229,10 @@ footer{
     margin-left: 35%;
 }
 
-.article_zoom_bottom{
-    display: flex;
-    margin-left: 35%;
-}
 
 .article_zoom_h3{
-    margin-left: 420px;
+    display: flex;
+    justify-content: center;
 }
 
 /*ARTICLE ZOOM COMMENTAIRE*/
@@ -322,18 +259,53 @@ footer{
 
 /*ARTICLE ZOOM FORM */
 
+.article_zoom_form{
+    display: block;
+    text-align: center;
+}
+
 .article_zoom_form h1{
     display: flex;
     justify-content: center;
 }
 
 .article_zoom_form form{
-    display: flex;
-    justify-content: center;
-    margin-left: 38%;
+    display: inline-block;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
 }
 
 .article_zoom_form label{
     display: flex;
     justify-content: center;
+}
+
+/*FORM COLOR*/
+.upForm{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.deleteForm{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.signupForm{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.signinForm{
+    color: black;
+    display: flex;
+    justify-content: center;
+}
+
+.mailForm{
+    color: black;
 }

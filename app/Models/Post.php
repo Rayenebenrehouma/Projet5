@@ -1,107 +1,108 @@
 <?php
 
+namespace MyApp\Models;
+
 class Post
 {
-    private int     $id;
-    private string  $titre;
-    private string  $contenu;
-    private string  $chapo;
-    private string  $auteur;
-    private date    $date_time_publication;
+    private     $id;
+    private     $titre;
+    private     $contenu;
+    private     $chapo;
+    private     $auteur;
+    private     $date_time_publication;
 
     /**
-     * @return int
+     * @return mixed
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
 
     /**
-     * @param int $id
+     * @param mixed $id
      */
-    public function setId(int $id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
 
-
     /**
-     * @return string
+     * @return mixed
      */
-    public function getTitre(): string
+    public function getTitre()
     {
         return $this->titre;
     }
 
     /**
-     * @param string $titre
+     * @param mixed $titre
      */
-    public function setTitre(string $titre): void
+    public function setTitre($titre)
     {
         $this->titre = $titre;
     }
 
-
     /**
-     * @return string
+     * @return mixed
      */
-    public function getContenu(): string
+    public function getContenu()
     {
         return $this->contenu;
     }
 
     /**
-     * @param string $contenu
+     * @param mixed $contenu
      */
-    public function setContenu(string $contenu): void
+    public function setContenu($contenu)
     {
         $this->contenu = $contenu;
     }
+
     /**
-     * @return string
+     * @return mixed
      */
-    public function getChapo(): string
+    public function getChapo()
     {
         return $this->chapo;
     }
 
     /**
-     * @param string $chapo
+     * @param mixed $chapo
      */
-    public function setChapo(string $chapo): void
+    public function setChapo($chapo)
     {
         $this->chapo = $chapo;
     }
 
     /**
-     * @return string
+     * @return mixed
      */
-    public function getAuteur(): string
+    public function getAuteur()
     {
         return $this->auteur;
     }
 
     /**
-     * @param string $auteur
+     * @param mixed $auteur
      */
-    public function setAuteur(string $auteur): void
+    public function setAuteur($auteur)
     {
         $this->auteur = $auteur;
     }
 
     /**
-     * @return date
+     * @return mixed
      */
-    public function getDateTimePublication(): date
+    public function getDateTimePublication()
     {
         return $this->date_time_publication;
     }
 
     /**
-     * @param date $date_time_publication
+     * @param mixed $date_time_publication
      */
-    public function setDateTimePublication(date $date_time_publication): void
+    public function setDateTimePublication($date_time_publication)
     {
         $this->date_time_publication = $date_time_publication;
     }
