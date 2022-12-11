@@ -1,21 +1,21 @@
 <?php
+require_once './vendor/autoload.php';
 
-require 'vendor/autoload.php';
-require './app/Controllers/Controller.php';
-require './app/Controllers/CommentaryController.php';
+use MyApp\Controllers\Controller;
+use MyApp\Controllers\CommentaryController;
+//require './app/Controllers/CommentaryController.php';
 
 $urlParts =  array_values(array_filter(explode('/', $_SERVER["REQUEST_URI"])));
 $urlString = implode('',$urlParts);
 $controllerName = $urlParts[0];
-
 
 require ('./app/Views/header.php');
 
 if($controllerName == ''){
     require ('./app/Views/home.php');
 }if($controllerName == 'accueil'){
-    $newEmail = new Controller();
-    $newEmail->mailSend();
+    /*$newEmail = new Controller();
+    $newEmail->mailSend();*/
     require ('./app/Views/home.php');
 }if($controllerName == 'liste-des-articles'){
     $newPost = new Controller();

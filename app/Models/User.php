@@ -1,18 +1,18 @@
 <?php
-
+namespace MyApp\Models;
 
 class User
 {
-    private int     $id;
-    private string  $identifiant;
-    private string  $email;
-    private string  $password;
-    private string  $role;
+    private     $id;
+    private     $identifiant;
+    private     $email;
+    private     $password;
+    private     $role;
 
     /**
      * @return int
      */
-    public function getId(): int
+    public function getId()
     {
         return $this->id;
     }
@@ -20,7 +20,7 @@ class User
     /**
      * @param int $id
      */
-    public function setId(int $id): void
+    public function setId($id)
     {
         $this->id = $id;
     }
@@ -28,7 +28,7 @@ class User
     /**
      * @return string
      */
-    public function getIdentifiant(): string
+    public function getIdentifiant()
     {
         return $this->identifiant;
     }
@@ -36,7 +36,7 @@ class User
     /**
      * @param string $identifiant
      */
-    public function setIdentifiant(string $identifiant): void
+    public function setIdentifiant($identifiant)
     {
         $this->identifiant = $identifiant;
     }
@@ -44,7 +44,7 @@ class User
     /**
      * @return string
      */
-    public function getEmail(): string
+    public function getEmail()
     {
         return $this->email;
     }
@@ -52,7 +52,7 @@ class User
     /**
      * @param string $email
      */
-    public function setEmail(string $email): void
+    public function setEmail($email)
     {
         $this->email = $email;
     }
@@ -60,7 +60,7 @@ class User
     /**
      * @return string
      */
-    public function getPassword(): string
+    public function getPassword()
     {
         return $this->password;
     }
@@ -68,7 +68,7 @@ class User
     /**
      * @param string $password
      */
-    public function setPassword(string $password): void
+    public function setPassword($password)
     {
         $this->password = $password;
     }
@@ -76,7 +76,7 @@ class User
     /**
      * @return string
      */
-    public function getRole(): string
+    public function getRole()
     {
         return $this->role;
     }
@@ -84,7 +84,7 @@ class User
     /**
      * @param string $role
      */
-    public function setRole(string $role): void
+    public function setRole($role)
     {
         $this->role = $role;
     }

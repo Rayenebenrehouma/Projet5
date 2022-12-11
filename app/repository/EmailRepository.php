@@ -1,4 +1,6 @@
 <?php
+namespace MyApp\repository;
+
 
 require_once "./phpmailer/Exception.php";
 require_once "./phpmailer/PHPMailer.php";
@@ -6,13 +8,11 @@ require_once "./phpmailer/SMTP.php";
 
 
 use PHPMailer\PHPMailer\PHPMailer;
-use PHPMailer\PHPMailer\SMTP;
 
 class EmailRepository{
     public function sendMail(){
-        $bdd = new PDO("mysql:host=127.0.0.1;dbname=projet5;charset=utf8", "root", "");
             $mail = new PHPMailer(true);
-            $mail->SMTPDebug = SMTP::DEBUG_SERVER;
+            //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
             //On configure le SMTP
             $mail->isSMTP();
             $mail->Host = "localhost";
@@ -33,7 +33,8 @@ class EmailRepository{
             souvent intentionnellement (histoire d'y rajouter de petits clins d'oeil, voire des phrases embarassantes).";
             //Envoi
             $mail->send();
-            echo "Mail bien envoyé";
+            $test =  "Mail bien envoyé";
+            die($test);
         }
 
 }

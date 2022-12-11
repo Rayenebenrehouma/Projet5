@@ -8,17 +8,22 @@
 </div>
 <div class="article_separator">
 </div>
-<div class="article_list_style">
-    <?php foreach ($blogPost as $post){ ?>
-        <div class="article_content_style">
-            <h1><?=$post->titre?></h1>
-            <h2><?=$post->chapo?></h2>
-            <div class="article_bottom_style">
-                <a href="/article-<?= $post->id ?> ">
+
+<div class="article_list_style ">
+            <?php
+                for ($i = 0; $i <= 40; $i++){
+                if(isset($blogPost[$i])){
+            ?>
+            <div class="article_content_style">
+                <h1><?=$blogPost[$i]->getTitre();?></h1>
+                <h2><?=$blogPost[$i]->getChapo();?></h2>
+                <a href="/article-<?=$blogPost[$i]->getId();?> ">
                     Voir plus
                 </a>
-                <h3><?= $post->date_time_publication ?></h3>
+                <h3><?=$blogPost[$i]->getDateTimePublication();?></h3>
             </div>
-        </div>
-    <?php } ?>
+                <?php
+                }
+               }
+                ?>
 </div>

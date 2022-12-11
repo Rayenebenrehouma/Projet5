@@ -12,41 +12,52 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <!-- Font Awesome CDN -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@3.3.7/dist/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="../../style.css">
+    <link rel="stylesheet" href="../../Accueil.css">
 </head>
 <body>
-<div class="banner">
-    <nav>
-        <img src="../../image/devlogo.png" class="logo" alt="">
-        <ul>
-            <li><a href="/accueil">Accueil</a></li>
-            <li><a href="ajouter-un-article">Redaction</a></li>
 
-                <li><a href="/liste-des-articles">Articles</a></li>
-            <?php
-            if(!isset($_SESSION['user'])){
-            ?>
-            <li><a href="/inscription">Inscription</a></li>
-                <?php
-            }
-            ?>
-            <?php
-            if(isset($_SESSION['user'])){
-                ?>
-                <li><a href="/deconnexion">Deconnexion</a></li>
-                <?php
-            }else{
-            ?>
-            <li><a href="/connection">Se Connecter</a></li>
-            <?php
-            }
-            ?>
-        </ul>
-    </nav>
-
-    <div class="site-container">
-        <p>Bienvenue sur</p>
-        <h1>Le Projet 5</h1>
-        <h4>Le developpeur qu'il vous faut</h4>
+<header>
+    <div class="limitedWidthBlockContainer informations">
     </div>
-</div>
+    <div class="limitedWidthBlockContainer menu">
+        <div class="limitedWidthBlock">
+            <a href="./index.html">
+                <img class="logo" src="../../image/devlogo.png" alt="Logo de l'entreprise">
+            </a>
+            <nav>
+                <ul>
+                    <a href="/accueil"><li>Accueil</li></a>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                    ?>
+                    <a href="/ajouter-un-article"><li>Rédaction</li></a>
+                    <?php
+                    }
+                    ?>
+                    <a href="/liste-des-articles"><li>Articles</li></a>
+                    <?php
+                    if(!isset($_SESSION['user'])){
+                    ?>
+                    <a href="/inscription"><li>inscription</li></a>
+                    <?php
+                    }
+                    ?>
+                    <?php
+                    if(isset($_SESSION['user'])){
+                    ?>
+                    <a href="/deconnexion"><li>deconnexion</li></a>
+                    <?php
+                    }else{
+                    ?>
+                    <a href="/connection"><li>connexion</li></a>
+                    <?php
+                    }
+                    ?>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    <img class="banniere" src="../../image/Banner.jpg" alt="Baniere">
+</header>
