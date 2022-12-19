@@ -27,11 +27,12 @@ class PostRepository
         $BDD = new Database();
         $DB= $BDD->connect();
         if(isset($postId) && $postId > 0){
-            $article = $DB->prepare('SELECT titre, chapo, contenu, identifiant, date_time_publication FROM articles INNER JOIN utilisateurs ON articles.auteur = utilisateurs.id_utilisateur WHERE id = ?');
+            $article = $DB->prepare('SELECT id, titre, chapo, contenu, identifiant, date_time_publication FROM articles INNER JOIN utilisateurs ON articles.auteur = utilisateurs.id_utilisateur WHERE id = ?');
             $article->execute(array($postId));
             $datas = $article->fetch();
             //Stockage des informations dans l'objet
             $data = new Post();
+            $data->setId($datas["id"]);
             $data->setTitre($datas["titre"]);
             $data->setChapo($datas["chapo"]);
             $data->setContenu($datas["contenu"]);
@@ -58,8 +59,8 @@ class PostRepository
     public function updatePost($updateId, $upPost){
         $BDD = new Database();
         $DB= $BDD->connect();
-            $article = $DB->prepare('UPDATE articles SET titre = ?, chapo = ?, contenu = ?, date_time_publication = ? WHERE id = ?');
-            $result =  $article->execute(array($upPost->getTitre(), $upPost->getChapo(), $upPost->getContenu(), $upPost->getDateTimePublication(), $updateId));
+            $article = $DB->prepare('UPDATE articles SET titre = ?, contenu = ?, chapo = ?, date_time_publication = ? WHERE id = ?');
+            $result =  $article->execute(array($upPost->getTitre(), $upPost->getContenu(), $upPost->getChapo(), $upPost->getDateTimePublication(), $updateId));
             if ($result){
                 header('location: /liste-des-articles');
             }else{

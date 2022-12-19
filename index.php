@@ -55,8 +55,12 @@ if($controllerName == ''){
     $newPost->commentaryControllerAdd($postId);
 }if(preg_match('#liste-des-commentaire-([0-9]+)#',$urlString, $params)){
     $postId = $params[1];
-    $newPost = new Controller();
+    $newPost = new CommentaryController();
     $newPost->commentaryControllerList($postId);
+}if(preg_match('#delete-commentaire-([0-9]+)#',$urlString, $params)){
+    $deleteId = $params[1];
+    $newCom = new CommentaryController();
+    $newCom->commentaryControllerDelete($deleteId);
 }
 
 require ('./app/Views/footer.php');

@@ -29,4 +29,9 @@ class CommentaryController{
         }
         require('./app/Views/commentaryAdd.php');
     }
+
+    public function commentaryControllerDelete($deleteId){
+        $commentaryRepository = new CommentaryRepository();
+        $commentaryDelete = $commentaryRepository->deleteCommentary($deleteId);
+    }
 }

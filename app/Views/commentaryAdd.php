@@ -12,6 +12,12 @@ if($_SESSION['user']->getRole() == 1){
         </div>
         <button type="submit" value="ajout-commentaire" class="btn btn-primary">Ajout</button>
     </form>
+    <hr>
+    <div>
+        <a href="liste-des-commentaire-">
+            <button class="btn btn-primary">Liste des commentaires</button>
+        </a>
+    </div>
 </div>
     <?php
             }
