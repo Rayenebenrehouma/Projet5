@@ -55,8 +55,8 @@ class Controller{
 
             $upPost = new Post();
             $upPost->setTitre($titre);
-            $upPost->setContenu($chapo);
-            $upPost->setChapo($contenu);
+            $upPost->setContenu($contenu);
+            $upPost->setChapo($chapo);
             $upPost->setDateTimePublication($article_date);
 
 
