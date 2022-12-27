@@ -10,6 +10,12 @@ require_once "./phpmailer/SMTP.php";
 use PHPMailer\PHPMailer\PHPMailer;
 
 class EmailRepository{
+
+
+    /**
+     * @return void
+     * @throws \PHPMailer\PHPMailer\Exception
+     */
     public function sendMail(){
             $mail = new PHPMailer(true);
             //$mail->SMTPDebug = SMTP::DEBUG_SERVER;
