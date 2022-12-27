@@ -28,7 +28,6 @@ class Database
 
         } catch (PDOException $e) {
             echo 'Erreur : impossible de se connecter à la base de donnée';
-            die();
         }
     }
 
