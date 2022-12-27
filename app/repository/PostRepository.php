@@ -7,6 +7,9 @@ use MyApp\Models\Post;
 class PostRepository
 {
 
+    /**
+     * @return array
+     */
     public function findAll(){
         $BDD = new Database();
         $DB= $BDD->connect();
@@ -23,6 +26,10 @@ class PostRepository
         return $datas;
     }
 
+    /**
+     * @param $postId
+     * @return Post|void
+     */
     public function postById($postId){
         $BDD = new Database();
         $DB= $BDD->connect();
@@ -42,6 +49,11 @@ class PostRepository
     }
 
 }
+
+    /**
+     * @param $newPost
+     * @return void
+     */
     public function addPost($newPost){
                 $BDD = new Database();
                 $DB= $BDD->connect();
@@ -56,6 +68,11 @@ class PostRepository
                 }
             }
 
+    /**
+     * @param $updateId
+     * @param $upPost
+     * @return void
+     */
     public function updatePost($updateId, $upPost){
         $BDD = new Database();
         $DB= $BDD->connect();
@@ -69,6 +86,10 @@ class PostRepository
 
     }
 
+    /**
+     * @param $deleteId
+     * @return void
+     */
     public function deletePost($deleteId){
         $BDD = new Database();
         $DB= $BDD->connect();

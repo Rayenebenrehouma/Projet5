@@ -7,6 +7,11 @@ use MyApp\Models\User;
 
 class UserRepository
 {
+
+    /**
+     * @param $user
+     * @return void
+     */
     public function addUser($user){
                 $BDD = new Database();
                 $DB= $BDD->connect();
@@ -19,6 +24,10 @@ class UserRepository
                 }
             }
 
+    /**
+     * @param $user
+     * @return void
+     */
     public function connectUser($user){
             $BDD = new Database();
             $DB= $BDD->connect();
@@ -45,6 +54,9 @@ class UserRepository
             }
         }
 
+    /**
+     * @return void
+     */
     public function disconnectUser(){
         session_start();
         session_destroy();

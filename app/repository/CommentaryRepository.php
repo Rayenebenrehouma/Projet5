@@ -8,6 +8,11 @@ use MyApp\Models\Commentary;
 class CommentaryRepository
 {
 
+    /**
+     * @param $commentId
+     * @param $commentaryAdd
+     * @return void
+     */
     public function addCommentary($commentId, $commentaryAdd)
     {
         $BDD = new Database();
@@ -19,6 +24,10 @@ class CommentaryRepository
     }
 
 
+    /**
+     * @param $commentId
+     * @return array
+     */
     public function allCommentary($commentId){
         $BDD = new Database();
         $DB= $BDD->connect();
@@ -35,6 +44,10 @@ class CommentaryRepository
         return $datas;
         }
 
+    /**
+     * @param $deleteId
+     * @return void
+     */
     public function deleteCommentary($deleteId){
         $BDD = new Database();
         $DB= $BDD->connect();

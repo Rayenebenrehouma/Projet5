@@ -9,18 +9,30 @@ use MyApp\repository\UserRepository;
 
 
 class Controller{
+
+
+    /**
+     * @return void
+     */
     public function postControllerAll(){
         $postRepository = new postRepository();
         $blogPost = $postRepository->findAll();
         require('./app/Views/articleList.php');
     }
 
+    /**
+     * @param $postId
+     * @return void
+     */
     public function postControllerById($postId){
         $postRepository = new postRepository();
         $postZoom = $postRepository->postById($postId);
         require('./app/Views/articleZoom.php');
     }
 
+    /**
+     * @return void
+     */
     public function postControllerAdd(){
 
         if (isset($_POST['article_titre'], $_POST['article_contenu'])) {
@@ -44,6 +56,10 @@ class Controller{
             }
 
 
+    /**
+     * @param $updateId
+     * @return void
+     */
     public function postControllerUpdate($updateId){
 
         if(isset($_POST['update'])) {
@@ -68,6 +84,10 @@ class Controller{
         require('./app/Views/updateForm.php');
     }
 
+    /**
+     * @param $deleteId
+     * @return void
+     */
     public function postControllerDelete($deleteId){
         $postRepository = new postRepository();
         $postDelete = $postRepository->postById($deleteId);
@@ -75,6 +95,9 @@ class Controller{
         $postDelete = $postRepository->deletePost($deleteId);
     }
 
+    /**
+     * @return void
+     */
     public function userControllerAdd(){
         if (isset($_POST['user_email'], $_POST['user_password'])) {
             if (!empty($_POST['user_email']) and !empty($_POST['user_password'])) {
@@ -94,6 +117,9 @@ class Controller{
         require('./app/Views/signUp.php');
     }
 
+    /**
+     * @return void
+     */
     public function userControllerConnect(){
         if (isset($_POST['user_email'], $_POST['user_password'])) {
             $user_email = htmlspecialchars($_POST['user_email']);
@@ -109,6 +135,9 @@ class Controller{
         require('./app/Views/signIn.php');
     }
 
+    /**
+     * @return void
+     */
     public function userControllerDisconnect(){
         $userRepository = new userRepository();
         require('./app/Views/disconnect.php');
@@ -116,11 +145,17 @@ class Controller{
         require('./app/Views/disconnect.php');
     }
 
+    /**
+     * @return void
+     */
     public function mailSend(){
         $mailRepository = new EmailRepository();
         $mailRepository->sendMail();
     }
 
+    /**
+     * @return void
+     */
     public function gestionSite(){
         require('./app/Views/administration.php');
     }

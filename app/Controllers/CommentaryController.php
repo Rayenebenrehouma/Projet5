@@ -5,12 +5,21 @@ use MyApp\Models\Commentary;
 use MyApp\repository\CommentaryRepository;
 
 class CommentaryController{
+    /**
+     * @param $commentId
+     * @return void
+     */
     public function commentaryControllerList($commentId){
         $commentRepository = new CommentaryRepository();
         $commentZoom = $commentRepository->allCommentary($commentId);
         require './app/Views/commentaryList.php';
     }
 
+
+    /**
+     * @param $commentId
+     * @return void
+     */
     public function commentaryControllerAdd($commentId){
         if (isset($_POST['commentary_content'])) {
             if (!empty($_POST['commentary_content'])) {
@@ -30,6 +39,10 @@ class CommentaryController{
         require('./app/Views/commentaryAdd.php');
     }
 
+    /**
+     * @param $deleteId
+     * @return void
+     */
     public function commentaryControllerDelete($deleteId){
         $commentaryRepository = new CommentaryRepository();
         $commentaryDelete = $commentaryRepository->deleteCommentary($deleteId);
