@@ -7,7 +7,7 @@
         }
     ?>
         <h2 id="titre_cv">Découvrez mon CV</h2>
-        <a href="file:///C:/Users/rayen/Desktop/All%20in%20one/Document%20Importants/Travail/CV_Developpeur_Web_-_Rayene_Ben_Rehouma.pdf.pdf" id="link_pdf">CV développeur Web Rayen Ben Rehouma</a>
+        <a href="/app/public/cv/CV_Developpeur_Web_-_Rayene_Ben_Rehouma.pdf.pdf" id="link_pdf">CV développeur Web Rayen Ben Rehouma</a>
     </div>
     <div class="container mailForm">
         <form action="" method="POST" class="form">

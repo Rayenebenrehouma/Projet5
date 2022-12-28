@@ -31,8 +31,8 @@ class CommentaryRepository
     public function allCommentary($commentId){
         $BDD = new Database();
         $DB= $BDD->connect();
-        $status = htmlspecialchars("approved");
-        $sql = $DB->query("SELECT id_commentaire, content, author FROM commentaires WHERE id_article = $commentId");
+        $status = htmlspecialchars(1);
+        $sql = $DB->query("SELECT id_commentaire, content, author FROM commentaires WHERE id_article = $commentId AND status = $status");
         $datas = [];
         foreach ($sql->fetchAll(\PDO::FETCH_CLASS) as $row) {
             $data = new Commentary();
