@@ -15,11 +15,11 @@
 
             <input type="text" id="firstname" name="firstname" placeholder="Votre nom" required>
 
-            <input type="text" id="name" name="name" placeholder="Votre prénom" required>
+            <input type="text" id="sujet" name="sujet" placeholder="Objet" required>
 
             <input type="email" id="email" name="email" placeholder="Votre Email" required>
 
-            <textarea name="" id="message" name="message" cols="30" rows="4" placeholder="Votre message..."></textarea>
+            <textarea id="message" name="message" cols="30" rows="4" placeholder="Votre message..."></textarea>
 
             <button type="submit">Envoyez</button>
 

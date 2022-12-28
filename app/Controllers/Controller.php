@@ -1,6 +1,7 @@
 <?php
 namespace MyApp\Controllers;
 
+use MyApp\Models\Mail;
 use MyApp\Models\Post;
 use MyApp\Models\User;
 use MyApp\repository\EmailRepository;
@@ -149,8 +150,24 @@ class Controller{
      * @return void
      */
     public function mailSend(){
-        $mailRepository = new EmailRepository();
-        $mailRepository->sendMail();
+        if (isset($_POST['email']) && isset($_POST['message']) && isset($_POST['sujet'])) {
+            if (!empty($_POST['email'])) {
+                $firstname = htmlspecialchars($_POST['firstname']);
+                $sujet = htmlspecialchars($_POST['sujet']);
+                $email = htmlspecialchars($_POST['email']);
+                $message = htmlspecialchars($_POST['message']);
+
+                $mail = new Mail();
+                $mail->setFirstname($firstname);
+                $mail->setSujet($sujet);
+                $mail->setEmail($email);
+                $mail->setMessage($message);
+
+                $mailRepository = new EmailRepository();
+                $mailRepository->sendMail($mail);
+
+            }
+            }
     }
 
     /**
