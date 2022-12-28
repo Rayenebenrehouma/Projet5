@@ -6,7 +6,7 @@ if(isset($_SESSION['user'])){
     <h1>Ajouter un article</h1>
 </div>
 <div class="form_style">
-<form action="" method="POST">
+<form action="" method="POST" id="RedacForm">
     <input type="text" name="article_titre" placeholder="Titre"><br>
     <textarea name="article_contenu" id="" cols="30" rows="10" placeholder="Contenu de l'article"></textarea><br>
     <input type="text" name="article_chapo" placeholder="Chapo"><br>

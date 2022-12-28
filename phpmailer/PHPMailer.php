@@ -1124,6 +1124,10 @@ class PHPMailer
         return call_user_func_array([$this, 'addAnAddress'], $params);
     }
 
+    public function getEmail()
+    {
+    }
+
     /**
      * Add an address to one of the recipient arrays or to the ReplyTo array.
      * Addresses that have been added already return false, but do not throw exceptions.
