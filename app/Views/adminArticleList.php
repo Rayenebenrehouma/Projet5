@@ -41,10 +41,10 @@ if($_SESSION['user']->getRole() == 1){
                 <?=$blogPost[$i]->getDateTimePublication();?>
             </th>
             <th>
-                <a href="administration-update-post-<?=$blogPost[$i]->getId();?>">
+                <a href="administration-postUpdate-<?=$blogPost[$i]->getId();?>">
                     <button class="btn btn-primary">Update</button>
                 </a>
-                <a href="administration-delete-post-<?=$blogPost[$i]->getId();?>">
+                <a href="administration-postDelete-<?=$blogPost[$i]->getId();?>">
                     <button class="btn btn-danger">Delete</button>
                 </a>
                 <a href="admin-commentaire-<?=$blogPost[$i]->getId();?>">

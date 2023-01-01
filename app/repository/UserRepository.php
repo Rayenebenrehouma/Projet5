@@ -31,15 +31,16 @@ class UserRepository
     public function connectUser($user){
             $BDD = new Database();
             $DB= $BDD->connect();
-            $check = $DB->prepare('SELECT id_utilisateur, identifiant, email, password, role FROM utilisateurs WHERE email = ?');
-            $check->execute(array($user->getEmail()));
+            $check = $DB->prepare('SELECT id_utilisateur, identifiant, email, password, role FROM utilisateurs WHERE email = ? AND status = 1');
+            $result = $check->execute(array($user->getEmail()));
+
             $data = $check->fetch();
             $row = $check->rowCount();
-            $test02 = password_verify($user->getPassword(),$data["password"]);
+            $passwordChek = password_verify($user->getPassword(),$data["password"]);
 
 
-            if($row == 1){
-                if($test02 == true){
+            if($row == 1) {
+                if ($passwordChek == true) {
                     $datas = new User();
                     $datas->setId($data["id_utilisateur"]);
                     $datas->setIdentifiant($data["identifiant"]);
@@ -52,6 +53,8 @@ class UserRepository
                     header('location: /accueil');
                 }
             }
+                header('location: /accueil');
+
         }
 
     /**
