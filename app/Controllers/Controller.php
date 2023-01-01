@@ -219,7 +219,7 @@ class Controller{
         }
         $postRepository = new postRepository();
         $postUpdate = $postRepository->postById($updateId);
-        require('./app/Views/updateAdminForm.php');
+        require('./app/Views/adminUpdatePost.php');
     }
 
     /**

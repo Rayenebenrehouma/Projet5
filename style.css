@@ -142,7 +142,7 @@ footer{
 
 .article_content_style{
     border: 1px solid black;
-    width: 30%;
+    width: 32%;
     justify-content: center;
 }
 
@@ -312,4 +312,23 @@ footer{
 
 #RedacForm{
     color: black;
+}
+
+
+@media (max-width: 1046px) {
+    .article_content_style{
+        width: 33%;
+    }
+}
+
+@media (max-width: 734px){
+    .article_list_style{
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .article_content_style{
+        width: 90%;
+    }
+
 }

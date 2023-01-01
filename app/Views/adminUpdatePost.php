@@ -1,6 +1,5 @@
 <?php
 if(isset($_SESSION['user'])){
-    die($_SESSION['user']->getRole());
     if($_SESSION['user']->getRole() == 1){
         ?>
         <h1>Mettre à jour le post</h1>
@@ -14,10 +13,6 @@ if(isset($_SESSION['user'])){
         </div>
         <br>
         <?php
-    }else{
-        header ('location: /accueil');
     }
-}else{
-    header ('location: /connection');
 }
 ?>

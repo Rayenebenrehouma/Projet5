@@ -6,7 +6,6 @@
             <h3 class="article_zoom_h3"><?= $postZoom->getAuteur(); ?></h3>
             <h3 class="article_zoom_h3"><?= $postZoom->getDatetimepublication(); ?></h3>
     </div>
-    <h1>Administrateur <?= $postZoom->getAuteur(); ?></h1>
     <?php
     if(isset($_SESSION['user'])){
     if($_SESSION['user']->getIdentifiant() == $postZoom->getAuteur()){

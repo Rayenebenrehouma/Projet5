@@ -95,11 +95,11 @@ if($controllerName == ''){
     $commentId = $params[1];
     $newCommentaire = new CommentaryController();
     $newCommentaire->commentaryControllerAdminDisapprove($commentId);
-}if(preg_match('#administration-update-post-([0-9]+)#',$urlString, $params)){
+}if(preg_match('#administration-postUpdate-([0-9]+)#',$urlString, $params)){
     $updateId = $params[1];
     $updateById = new Controller();
     $updateById->postControllerAdminUpdate($updateId);
-}if(preg_match('#administration-delete-post-([0-9]+)#',$urlString, $params)){
+}if(preg_match('#administration-postDelete-([0-9]+)#',$urlString, $params)){
     $deleteId = $params[1];
     $deleteById = new Controller();
     $deleteById->postControllerAdminDelete($deleteId);
