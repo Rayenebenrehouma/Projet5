@@ -1,6 +1,6 @@
 <?php
 if(isset($_SESSION['user'])){
-if($_SESSION['user']->getRole() == 1){
+    if($_SESSION['user']->getIdentifiant() == $postUpdate->getAuteur()){
 ?>
 <h1>Mettre à jour le post</h1>
     <div class="upForm">
