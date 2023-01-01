@@ -2,6 +2,7 @@
 namespace MyApp\Controllers;
 
 use MyApp\Models\Commentary;
+use MyApp\Models\Database;
 use MyApp\repository\CommentaryRepository;
 
 class CommentaryController{
@@ -25,7 +26,7 @@ class CommentaryController{
             if (!empty($_POST['commentary_content'])) {
                 $commentary_content = htmlspecialchars($_POST['commentary_content']);
                 $commentary_author = htmlspecialchars($_SESSION['user']->getIdentifiant());
-                $commentary_status = htmlspecialchars("disaproved");
+                $commentary_status = htmlspecialchars("0");
 
                 $commentaryAdd = new Commentary();
                 $commentaryAdd->setContent($commentary_content);
@@ -46,5 +47,22 @@ class CommentaryController{
     public function commentaryControllerDelete($deleteId){
         $commentaryRepository = new CommentaryRepository();
         $commentaryDelete = $commentaryRepository->deleteCommentary($deleteId);
+    }
+
+    public function commentaryControllerListAdmin($postId)
+    {
+        $commentRepository = new CommentaryRepository();
+        $adminComment = $commentRepository->allCommentaryAdmin($postId);
+        require('./app/Views/adminCommentary.php');
+    }
+
+    public function commentaryControllerAdminApprove($commentId){
+        $commentRepository = new CommentaryRepository();
+        $adminComment = $commentRepository->approveComment($commentId);
+    }
+
+    public function commentaryControllerAdminDisapprove($commentId){
+        $commentRepository = new CommentaryRepository();
+        $adminComment = $commentRepository->disapproveComment($commentId);
     }
 }

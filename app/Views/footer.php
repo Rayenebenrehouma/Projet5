@@ -6,7 +6,7 @@
     </div>
     <div style="background: #004872;">
         <p style="color: #91BEC2; padding: 15px 0;" align="center">
-            &copy; 2019 Copyright: <a href="../../index.php">Created By: Rayen Ben Rehouma</a>
+            &copy; 2019 Copyright: <a href="../../index.php">Created By: Rayen Ben Rehouma</a> | <a href="/administration">Administration</a>
         </p>
     </div>
 </footer>

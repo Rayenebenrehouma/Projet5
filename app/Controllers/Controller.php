@@ -176,4 +176,60 @@ class Controller{
     public function gestionSite(){
         require('./app/Views/administration.php');
     }
+
+    public function adminUser(){
+        $userRepository = new UserRepository();
+        $userList = $userRepository->findUser();
+        require('./app/Views/adminUserList.php');
+    }
+
+    public function activateUser($updateId){
+        $userRepository = new UserRepository();
+        $userEnable = $userRepository->enableUser($updateId);
+    }
+
+    public function adminArticle(){
+        $postRepository = new PostRepository();
+        $blogPost = $postRepository->findAll();
+        require('./app/Views/adminArticleList.php');
+    }
+
+    /**
+     * @param $updateId
+     * @return void
+     */
+    public function postControllerAdminUpdate($updateId){
+
+        if(isset($_POST['update'])) {
+            $titre = htmlspecialchars($_POST['article_titre']);
+            $chapo = htmlspecialchars($_POST['article_chapo']);
+            $contenu = htmlspecialchars($_POST['article_contenu']);
+            $article_date = htmlspecialchars(date('Y/m/d'));
+
+
+            $upPost = new Post();
+            $upPost->setTitre($titre);
+            $upPost->setContenu($contenu);
+            $upPost->setChapo($chapo);
+            $upPost->setDateTimePublication($article_date);
+
+
+            $postChange = new PostRepository();
+            $postUpdate = $postChange->updatePost($updateId, $upPost);
+        }
+        $postRepository = new postRepository();
+        $postUpdate = $postRepository->postById($updateId);
+        require('./app/Views/updateAdminForm.php');
+    }
+
+    /**
+     * @param $deleteId
+     * @return void
+     */
+    public function postControllerAdminDelete($deleteId){
+        $postRepository = new postRepository();
+        $postDelete = $postRepository->postById($deleteId);
+        require('./app/Views/deleteAdminForm.php');
+        $postDelete = $postRepository->deletePost($deleteId);
+    }
 }

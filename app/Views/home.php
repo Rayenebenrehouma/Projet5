@@ -22,6 +22,5 @@
             <textarea id="message" name="message" cols="30" rows="4" placeholder="Votre message..."></textarea>
 
             <button type="submit">Envoyez</button>
-
         </form>
     </div>

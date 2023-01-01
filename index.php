@@ -66,6 +66,43 @@ if($controllerName == ''){
     $deleteId = $params[1];
     $newCom = new CommentaryController();
     $newCom->commentaryControllerDelete($deleteId);
+}if($controllerName == 'administration'){
+    $newPost = new Controller();
+    $newPost->gestionSite();
+}if($controllerName == 'administration-utilisateur'){
+    $newPost = new Controller();
+    $newPost->adminUser();
+}if(preg_match('#activer-utilisateur-([0-9]+)#',$urlString, $params)){
+    $updateId = $params[1];
+    $newPost = new Controller();
+    $newPost->activateUser($updateId);
+}if($controllerName == 'administration-article'){
+    $newPost = new Controller();
+    $newPost->adminArticle();
+}if(preg_match('#admin-article-([0-9]+)#',$urlString, $params)){
+    $updateId = $params[1];
+    $newPost = new Controller();
+    $newPost->activateUser($updateId);
+}if(preg_match('#admin-commentaire-([0-9]+)#',$urlString, $params)){
+    $postId = $params[1];
+    $newCommentaire = new CommentaryController();
+    $newCommentaire->commentaryControllerListAdmin($postId);
+}if(preg_match('#approve-comment-([0-9]+)#',$urlString, $params)){
+    $commentId = $params[1];
+    $newCommentaire = new CommentaryController();
+    $newCommentaire->commentaryControllerAdminApprove($commentId);
+}if(preg_match('#disapprove-comment-([0-9]+)#',$urlString, $params)){
+    $commentId = $params[1];
+    $newCommentaire = new CommentaryController();
+    $newCommentaire->commentaryControllerAdminDisapprove($commentId);
+}if(preg_match('#administration-update-post-([0-9]+)#',$urlString, $params)){
+    $updateId = $params[1];
+    $updateById = new Controller();
+    $updateById->postControllerAdminUpdate($updateId);
+}if(preg_match('#administration-delete-post-([0-9]+)#',$urlString, $params)){
+    $deleteId = $params[1];
+    $deleteById = new Controller();
+    $deleteById->postControllerAdminDelete($deleteId);
 }
 
 require ('./app/Views/footer.php');

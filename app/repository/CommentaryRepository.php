@@ -32,13 +32,14 @@ class CommentaryRepository
         $BDD = new Database();
         $DB= $BDD->connect();
         $status = htmlspecialchars(1);
-        $sql = $DB->query("SELECT id_commentaire, content, author FROM commentaires WHERE id_article = $commentId AND status = $status");
+        $sql = $DB->query("SELECT id_commentaire, content, author, status FROM commentaires WHERE id_article = $commentId AND status = $status");
         $datas = [];
         foreach ($sql->fetchAll(\PDO::FETCH_CLASS) as $row) {
             $data = new Commentary();
             $data->setId($row->id_commentaire);
             $data->setAuthor($row->author);
             $data->setContent($row->content);
+            $data->setStatus($row->status);
             $datas[] = $data;
         }
         return $datas;
@@ -61,4 +62,50 @@ class CommentaryRepository
             }
     }
 
+    /**
+     * @param $commentId
+     * @return array
+     */
+    public function allCommentaryAdmin($commentId){
+        $BDD = new Database();
+        $DB= $BDD->connect();
+        $status = htmlspecialchars(1);
+        $sql = $DB->query("SELECT id_commentaire, content, author, status FROM commentaires WHERE id_article = $commentId");
+        $datas = [];
+        foreach ($sql->fetchAll(\PDO::FETCH_CLASS) as $row) {
+            $data = new Commentary();
+            $data->setId($row->id_commentaire);
+            $data->setAuthor($row->author);
+            $data->setContent($row->content);
+            $data->setStatus($row->status);
+            $datas[] = $data;
+        }
+        return $datas;
+    }
+
+    public function approveComment($commentId){
+        $BDD = new Database();
+        $DB= $BDD->connect();
+
+        $commentaryApprove = $DB->prepare('UPDATE commentaires SET status = 1 WHERE id_commentaire = ?');
+        $result =  $commentaryApprove->execute(array($commentId));
+        if ($result){
+            header('location: /liste-des-articles');
+        }else{
+            echo "l'update na pas fonctionné";
+        }
+    }
+
+    public function disapproveComment($commentId){
+        $BDD = new Database();
+        $DB= $BDD->connect();
+
+        $commentaryApprove = $DB->prepare('UPDATE commentaires SET status = 0 WHERE id_commentaire = ?');
+        $result =  $commentaryApprove->execute(array($commentId));
+        if ($result){
+            header('location: /liste-des-articles');
+        }else{
+            echo "l'update na pas fonctionné";
+        }
+    }
 }

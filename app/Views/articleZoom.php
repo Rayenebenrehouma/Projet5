@@ -9,7 +9,7 @@
     <h1>Administrateur <?= $postZoom->getAuteur(); ?></h1>
     <?php
     if(isset($_SESSION['user'])){
-    if($_SESSION['user']->getRole() == 1){
+    if($_SESSION['user']->getIdentifiant() == $postZoom->getAuteur()){
     ?>
             <h4>Admin Post</h4>
         <div>

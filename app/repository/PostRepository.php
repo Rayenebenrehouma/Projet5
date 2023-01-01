@@ -13,11 +13,13 @@ class PostRepository
     public function findAll(){
         $BDD = new Database();
         $DB= $BDD->connect();
-        $articles = $DB->query("SELECT id, titre, date_time_publication, chapo FROM articles ORDER BY date_time_publication DESC");
+        $articles = $DB->query("SELECT id, contenu, auteur, titre, date_time_publication, chapo FROM articles ORDER BY date_time_publication DESC");
         $datas = [];
         foreach ($articles->fetchAll(\PDO::FETCH_CLASS) as $row){
             $data = new Post();
             $data->setId($row->id);
+            $data->setContenu($row->contenu);
+            $data->setAuteur($row->auteur);
             $data->setTitre($row->titre);
             $data->setChapo($row->chapo);
             $data->setDateTimePublication($row->date_time_publication);
