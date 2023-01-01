@@ -8,9 +8,6 @@
             ?>
         <h2><?= $number ." - ". $commentZoom[$i]->getAuthor() ?></h2>
         <h3><?= $commentZoom[$i]->getContent();?></h3>
-                <a href="delete-commentaire-<?=$commentZoom[$i]->getId()?>">
-                    <button class="btn btn-danger">Supprimer</button>
-                </a>
             <br>
         <?php
             $number++;
