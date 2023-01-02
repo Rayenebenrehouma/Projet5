@@ -51,10 +51,10 @@ class Controller{
 
                 $postRepository = new postRepository();
                 $postAdd = $postRepository->addPost($newPost);
-                    }
-                }
-                require('./app/Views/formRedaction.php');
             }
+        }
+        require('./app/Views/formRedaction.php');
+    }
 
 
     /**
@@ -167,7 +167,7 @@ class Controller{
                 $mailRepository->sendMail($mail);
 
             }
-            }
+        }
     }
 
     /**

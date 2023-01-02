@@ -36,7 +36,7 @@ class PostRepository
         $BDD = new Database();
         $DB= $BDD->connect();
         if(isset($postId) && $postId > 0){
-            $article = $DB->prepare('SELECT id, titre, chapo, contenu, identifiant, date_time_publication FROM articles INNER JOIN utilisateurs ON articles.auteur = utilisateurs.id_utilisateur WHERE id = ?');
+            $article = $DB->prepare('SELECT id, titre, chapo, contenu, identifiant, date_time_publication, auteur FROM articles INNER JOIN utilisateurs ON articles.auteur = utilisateurs.id_utilisateur WHERE id = ?');
             $article->execute(array($postId));
             $datas = $article->fetch();
             //Stockage des informations dans l'objet
@@ -47,28 +47,29 @@ class PostRepository
             $data->setContenu($datas["contenu"]);
             $data->setAuteur($datas["identifiant"]);
             $data->setDateTimePublication($datas["date_time_publication"]);
+            $data->setIdUtilisateur($datas["auteur"]);
             return $data;
-    }
+        }
 
-}
+    }
 
     /**
      * @param $newPost
      * @return void
      */
     public function addPost($newPost){
-                $BDD = new Database();
-                $DB= $BDD->connect();
-                //Stockage des information dans l'objet Post
-                $sql = $DB->prepare('INSERT INTO articles(titre, contenu, chapo, auteur, date_time_publication) VALUES(?, ?, ?, ?, NOW())');
-                $result = $sql->execute(array($newPost->getTitre(), $newPost->getContenu(),$newPost->getChapo(), $newPost->getAuteur()));
+        $BDD = new Database();
+        $DB= $BDD->connect();
+        //Stockage des information dans l'objet Post
+        $sql = $DB->prepare('INSERT INTO articles(titre, contenu, chapo, auteur, date_time_publication) VALUES(?, ?, ?, ?, NOW())');
+        $result = $sql->execute(array($newPost->getTitre(), $newPost->getContenu(),$newPost->getChapo(), $newPost->getAuteur()));
 
-                if ($result) {
-                    echo "article ajouté";
-                }else{
-                    echo "article non ajouté";
-                }
-            }
+        if ($result) {
+            echo "article ajouté";
+        }else{
+            echo "article non ajouté";
+        }
+    }
 
     /**
      * @param $updateId
@@ -78,13 +79,13 @@ class PostRepository
     public function updatePost($updateId, $upPost){
         $BDD = new Database();
         $DB= $BDD->connect();
-            $article = $DB->prepare('UPDATE articles SET titre = ?, contenu = ?, chapo = ?, date_time_publication = ? WHERE id = ?');
-            $result =  $article->execute(array($upPost->getTitre(), $upPost->getContenu(), $upPost->getChapo(), $upPost->getDateTimePublication(), $updateId));
-            if ($result){
-                header('location: /liste-des-articles');
-            }else{
-                echo "l'update na pas fonctionné";
-            }
+        $article = $DB->prepare('UPDATE articles SET titre = ?, contenu = ?, chapo = ?, date_time_publication = ? WHERE id = ?');
+        $result =  $article->execute(array($upPost->getTitre(), $upPost->getContenu(), $upPost->getChapo(), $upPost->getDateTimePublication(), $updateId));
+        if ($result){
+            header('location: /liste-des-articles');
+        }else{
+            echo "l'update na pas fonctionné";
+        }
 
     }
 

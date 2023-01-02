@@ -10,6 +10,23 @@ class Post
     private     $chapo;
     private     $auteur;
     private     $date_time_publication;
+    private     $id_utilisateur;
+
+    /**
+     * @return mixed
+     */
+    public function getIdUtilisateur()
+    {
+        return $this->id_utilisateur;
+    }
+
+    /**
+     * @param mixed $id_utilisateur
+     */
+    public function setIdUtilisateur($id_utilisateur): void
+    {
+        $this->id_utilisateur = $id_utilisateur;
+    }
 
     /**
      * @return mixed
